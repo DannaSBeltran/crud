@@ -1,0 +1,37 @@
+datos = []
+def crear(dato):
+    datos.append(dato)
+    print(f"Registro creado: {dato}")
+
+
+def leer():
+    print("Lista de registros:")
+    for idx, dato in enumerate(datos):
+        print(f"{idx + 1}: {dato}")
+
+
+def actualizar(indice, nuevo_dato):
+    if 0 <= indice < len(datos):
+        old_dato = datos[indice]
+        datos[indice] = nuevo_dato
+        print(f"Registro actualizado: {old_dato} a {nuevo_dato}")
+    else:
+        print("Índice fuera de rango.")
+
+
+def eliminar(indice):
+    if 0 <= indice < len(datos):
+        dato_eliminado = datos.pop(indice)
+        print(f"Registro eliminado: {dato_eliminado}")
+    else:
+        print("Índice fuera de rango.")
+
+
+# Usando las funciones de CRUD
+crear("Registro 1")
+crear("Registro 2")
+leer()
+actualizar(1, "Registro 2 Actualizado")
+leer()
+eliminar(0)
+leer()
